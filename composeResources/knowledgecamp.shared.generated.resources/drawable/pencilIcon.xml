@@ -5,18 +5,26 @@
         android:viewportWidth="24"
         android:viewportHeight="24">
 
-    <!-- Vertical line -->
-    <path
-            android:strokeColor="#FF000000"
-            android:strokeWidth="2"
-            android:strokeLineCap="round"
-            android:pathData="M12 4L12 20"/>
-
-    <!-- Arrow head -->
+    <!-- Pencil body (parallelogram) -->
     <path
             android:strokeColor="#FF000000"
             android:strokeWidth="2"
             android:strokeLineCap="round"
             android:strokeLineJoin="round"
-            android:pathData="M6 14L12 20L18 14"/>
+            android:pathData="M18 3L21 6L10 17L7 14L18 3Z"/>
+
+    <!-- Triangular tip -->
+    <path
+            android:strokeColor="#FF000000"
+            android:strokeWidth="2"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:pathData="M10 17L7 14L5 19L10 17Z"/>
+
+    <!-- Interior detail line -->
+    <path
+            android:strokeColor="#FF000000"
+            android:strokeWidth="2"
+            android:strokeLineCap="round"
+            android:pathData="M15 6L18 9"/>
 </vector>
