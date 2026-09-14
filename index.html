@@ -14,10 +14,72 @@
                 background-color: white;
                 overflow: hidden;
             }
+
+            #splash {
+                position: fixed;
+                inset: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: #FCFCFC;
+            }
+
+            #splash img {
+                position: absolute;
+                width: 128px;
+                height: 128px;
+                opacity: 0;
+                animation: bonfire 600ms linear infinite;
+            }
+
+            /* frame i is fully visible at i * 120ms, cross-fading with its neighbours */
+            #splash img:nth-child(1) { animation-delay: -480ms; filter: drop-shadow(0 0 12px rgba(255, 179, 102, .5)); }
+            #splash img:nth-child(2) { animation-delay: -600ms; filter: drop-shadow(0 0 12px rgba(255, 190, 102, .5)); }
+            #splash img:nth-child(3) { animation-delay: -720ms; filter: drop-shadow(0 0 12px rgba(255, 201, 102, .5)); }
+            #splash img:nth-child(4) { animation-delay: -840ms; filter: drop-shadow(0 0 12px rgba(255, 190, 102, .5)); }
+            #splash img:nth-child(5) { animation-delay: -960ms; filter: drop-shadow(0 0 12px rgba(255, 179, 102, .5)); }
+
+            /* constant-power cross-fade: opacity_in^2 + opacity_out^2 = 1, so the pair
+               never dips or doubles up. Same sqrt + cubic-bezier curve LoadingIconAnimation uses. */
+            @keyframes bonfire {
+                0%      { opacity: 0.000 }
+                1%      { opacity: 0.647 }
+                2%      { opacity: 0.720 }
+                3%      { opacity: 0.765 }
+                4%      { opacity: 0.798 }
+                6%      { opacity: 0.847 }
+                8%      { opacity: 0.882 }
+                10%     { opacity: 0.911 }
+                12%     { opacity: 0.934 }
+                14%     { opacity: 0.954 }
+                16%     { opacity: 0.971 }
+                18%     { opacity: 0.987 }
+                20%     { opacity: 1.000 }
+                21%     { opacity: 0.762 }
+                22%     { opacity: 0.694 }
+                23%     { opacity: 0.644 }
+                24%     { opacity: 0.602 }
+                26%     { opacity: 0.532 }
+                28%     { opacity: 0.470 }
+                30%     { opacity: 0.413 }
+                32%     { opacity: 0.357 }
+                34%     { opacity: 0.300 }
+                36%     { opacity: 0.237 }
+                38%     { opacity: 0.163 }
+                40%     { opacity: 0.000 }
+                100%    { opacity: 0.000 }
+            }
         </style>
     </head>
     <body>
         <canvas id="knowledgeCampCanvas"></canvas>
-        <script type="application/javascript" src="knowledgeCamp1.1.11.js"></script>
+        <div id="splash">
+            <img src="composeResources/knowledgecamp_client.shared.generated.resources/drawable/BonfireAnimationFrame1.ico" alt=""/>
+            <img src="composeResources/knowledgecamp_client.shared.generated.resources/drawable/BonfireAnimationFrame2.ico" alt=""/>
+            <img src="composeResources/knowledgecamp_client.shared.generated.resources/drawable/BonfireAnimationFrame3.ico" alt=""/>
+            <img src="composeResources/knowledgecamp_client.shared.generated.resources/drawable/BonfireAnimationFrame4.ico" alt=""/>
+            <img src="composeResources/knowledgecamp_client.shared.generated.resources/drawable/BonfireAnimationFrame5.ico" alt=""/>
+        </div>
+        <script type="application/javascript" src="knowledgeCamp1.1.12.js"></script>
     </body>
 </html>
