@@ -4,16 +4,36 @@
         <meta charset="UTF-8"
               name="viewport"
               content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=0; interactive-widget=resizes-content"/>
-        <title>Knowledge Camp</title>
+        <title>KnowledgeCamp</title>
+        <script>
+            /* The splash takes the theme the app will show, once at load: the student's choice under THEME_CHOICE,
+               'light' (Day) or 'dark' (Night), else the device's colour scheme (System, also for a missing or unknown
+               value). It repeats StorageKey.ThemeChoice, StateManager's stored values and ColorScheme.of in
+               shared/src/commonMain/kotlin/ai.knowledgecamp.client: change both in one commit */
+            var themeChoice = localStorage.getItem('THEME_CHOICE');
+            var isNight = themeChoice === 'dark' ||
+                (themeChoice !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            document.documentElement.dataset.theme = isNight ? 'night' : 'day';
+        </script>
         <style>
-            /* The page background (Paper) and the bonfire glow (loadingIconShadowByFrame) repeat ColorScheme.kt in
+            /* Each palette's page background and bonfire glow (bonfireGlow) repeat ColorScheme.kt in
                shared/src/commonMain/kotlin/ai.knowledgecamp.client/shared/view/variables: change both in one commit */
+            html[data-theme="day"] {
+                --page-background: #F7F6F3;
+                --bonfire-glow: drop-shadow(0 0 10px rgba(232, 113, 26, .35));
+            }
+
+            html[data-theme="night"] {
+                --page-background: #121212;
+                --bonfire-glow: drop-shadow(0 0 12px rgba(255, 138, 61, .55));
+            }
+
             html, body {
                 width: 100%;
                 height: 100%;
                 margin: 0;
                 padding: 0;
-                background-color: #FCFCFC;
+                background-color: var(--page-background);
                 overflow: hidden;
             }
 
@@ -23,7 +43,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background-color: #FCFCFC;
+                background-color: var(--page-background);
             }
 
             #splash img {
@@ -32,14 +52,22 @@
                 height: 128px;
                 opacity: 0;
                 animation: bonfire 600ms linear infinite;
+                filter: var(--bonfire-glow);
             }
 
-            /* frame i is fully visible at i * 120ms, cross-fading with its neighbours */
-            #splash img:nth-child(1) { animation-delay: -480ms; filter: drop-shadow(0 0 12px rgba(255, 179, 102, .5)); }
-            #splash img:nth-child(2) { animation-delay: -600ms; filter: drop-shadow(0 0 12px rgba(255, 190, 102, .5)); }
-            #splash img:nth-child(3) { animation-delay: -720ms; filter: drop-shadow(0 0 12px rgba(255, 201, 102, .5)); }
-            #splash img:nth-child(4) { animation-delay: -840ms; filter: drop-shadow(0 0 12px rgba(255, 190, 102, .5)); }
-            #splash img:nth-child(5) { animation-delay: -960ms; filter: drop-shadow(0 0 12px rgba(255, 179, 102, .5)); }
+            /* frame i is fully visible at i * 120ms, cross-fading with its neighbours; 120ms per frame repeats
+               Measures.motion.bonfireFrame in Measures.kt: change both in one commit */
+            #splash img:nth-child(1) { animation-delay: -480ms; }
+            #splash img:nth-child(2) { animation-delay: -600ms; }
+            #splash img:nth-child(3) { animation-delay: -720ms; }
+            #splash img:nth-child(4) { animation-delay: -840ms; }
+            #splash img:nth-child(5) { animation-delay: -960ms; }
+
+            /* With reduced motion the first frame stands still, as LoadingIconAnimation shows it */
+            @media (prefers-reduced-motion: reduce) {
+                #splash img { animation: none; }
+                #splash img:nth-child(1) { opacity: 1; }
+            }
 
             /* constant-power cross-fade: opacity_in^2 + opacity_out^2 = 1, so the pair
                never dips or doubles up. Same sqrt + cubic-bezier curve LoadingIconAnimation uses. */
@@ -82,6 +110,6 @@
             <img src="composeResources/knowledgecamp_client.shared.generated.resources/drawable/BonfireAnimationFrame4.ico" alt=""/>
             <img src="composeResources/knowledgecamp_client.shared.generated.resources/drawable/BonfireAnimationFrame5.ico" alt=""/>
         </div>
-        <script type="application/javascript" src="knowledgeCamp1.1.40.js"></script>
+        <script type="application/javascript" src="knowledgeCamp1.1.41.js"></script>
     </body>
 </html>

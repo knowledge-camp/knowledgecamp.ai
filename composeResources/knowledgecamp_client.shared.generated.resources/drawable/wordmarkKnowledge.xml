@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One part of the KnowledgeCamp wordmark, the outlines of the handoff's wordmark-day.svg (Manrope ExtraBold,
+     tracked -3 %). wordmarkKnowledge.xml and wordmarkCamp.xml share one viewport, so they cover each other's
+     place exactly. Logo.kt tints them. Measures.kt repeats the viewport's aspect ratio (WordmarkAspectRatio):
+     change both in one commit -->
+<vector
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="160.24dp"
+        android:height="19.8dp"
+        android:viewportWidth="16024"
+        android:viewportHeight="1980">
+
+    <!-- Font units: y up from the baseline, 1470 above it to 510 below -->
+    <group android:scaleY="-1" android:translateY="1470">
+        <group android:translateX="0">
+            <path android:fillColor="#FF000000" android:pathData="M140 0V1440H412V776L960 1440H1292L690 730L1330 0H986L412 656V0Z"/>
+        </group>
+        <group android:translateX="1270.0">
+            <path android:fillColor="#FF000000" android:pathData="M876 0V510Q876 547 872.0 604.5Q868 662 847.0 720.0Q826 778 778.5 817.0Q731 856 644 856Q609 856 569.0 845.0Q529 834 494.0 802.5Q459 771 436.5 710.0Q414 649 414 548V0H138V1080H380V969Q417 1011 467 1043Q571 1112 730 1112Q857 1112 937.0 1069.0Q1017 1026 1061.5 960.0Q1106 894 1125.0 822.5Q1144 751 1148.0 692.0Q1152 633 1152 606V0Z"/>
+        </group>
+        <group android:translateX="2482.0">
+            <path android:fillColor="#FF000000" android:pathData="M626 -30Q463 -30 340.0 43.0Q217 116 148.5 244.5Q80 373 80 540Q80 709 150.0 837.5Q220 966 343.0 1038.0Q466 1110 626 1110Q789 1110 912.5 1037.0Q1036 964 1105.0 835.5Q1174 707 1174 540Q1174 372 1104.5 243.5Q1035 115 911.5 42.5Q788 -30 626 -30ZM626 224Q757 224 821.5 312.5Q886 401 886 540Q886 684 820.5 770.0Q755 856 626 856Q537 856 480.0 816.0Q423 776 395.5 705.0Q368 634 368 540Q368 395 433.5 309.5Q499 224 626 224Z"/>
+        </group>
+        <group android:translateX="3676.0">
+            <path android:fillColor="#FF000000" android:pathData="M370 0 40 1082 306 1080 502 436 701 1080H927L1126 436L1322 1080H1588L1258 0H1050L814 704L578 0Z"/>
+        </group>
+        <group android:translateX="5244.0">
+            <path android:fillColor="#FF000000" android:pathData="M160 0V1470H432V0Z"/>
+        </group>
+        <group android:translateX="5776.0">
+            <path android:fillColor="#FF000000" android:pathData="M642 -30Q476 -30 349.5 41.5Q223 113 151.5 238.5Q80 364 80 526Q80 703 150.0 834.0Q220 965 343.0 1037.5Q466 1110 626 1110Q796 1110 915.0 1030.0Q1034 950 1091.0 805.0Q1148 660 1131 464H373Q386 367 434 307Q499 224 626 224Q706 224 763.0 259.0Q820 294 850 360L1122 282Q1061 134 929.5 52.0Q798 -30 642 -30ZM856 666Q844 754 810 802Q757 874 638 874Q499 874 434 790Q396 741 380 666Z"/>
+        </group>
+        <group android:translateX="6932.0">
+            <path android:fillColor="#FF000000" android:pathData="M578 -30Q429 -30 317.0 45.0Q205 120 142.5 249.0Q80 378 80 540Q80 705 143.5 833.5Q207 962 322.0 1036.0Q437 1110 592 1110Q735 1110 836 1045V1440H1110V0H870V62Q859 53 847 45Q739 -30 578 -30ZM622 212Q713 212 767.5 253.0Q822 294 846.0 368.0Q870 442 870.0 540.0Q870 638 846.0 712.0Q822 786 769.5 827.0Q717 868 632 868Q541 868 482.5 823.5Q424 779 396.0 704.5Q368 630 368 540Q368 449 395.0 374.5Q422 300 478.0 256.0Q534 212 622 212Z"/>
+        </group>
+        <group android:translateX="8122.0">
+            <path android:fillColor="#FF000000" android:pathData="M602 -510Q510 -510 427.0 -480.5Q344 -451 278.5 -398.5Q213 -346 172 -276L424 -154Q450 -202 498.5 -227.0Q547 -252 604 -252Q665 -252 719.0 -231.5Q773 -211 805.5 -170.5Q838 -130 836 -70V38Q731 -30 578 -30Q429 -30 317.0 45.0Q205 120 142.5 249.0Q80 378 80 540Q80 705 143.5 833.5Q207 962 322.0 1036.0Q437 1110 592 1110Q746 1110 851 1035Q861 1028 870 1021V1080H1108V-74Q1108 -114 1104.5 -149.5Q1101 -185 1092 -220Q1066 -319 995.5 -383.0Q925 -447 823.0 -478.5Q721 -510 602 -510ZM622 212Q713 212 767.5 253.0Q822 294 846.0 368.0Q870 442 870.0 540.0Q870 638 846.0 712.0Q822 786 769.5 827.0Q717 868 632 868Q541 868 482.5 823.5Q424 779 396.0 704.5Q368 630 368 540Q368 449 395.0 374.5Q422 300 478.0 256.0Q534 212 622 212Z"/>
+        </group>
+        <group android:translateX="9310.0">
+            <path android:fillColor="#FF000000" android:pathData="M642 -30Q476 -30 349.5 41.5Q223 113 151.5 238.5Q80 364 80 526Q80 703 150.0 834.0Q220 965 343.0 1037.5Q466 1110 626 1110Q796 1110 915.0 1030.0Q1034 950 1091.0 805.0Q1148 660 1131 464H373Q386 367 434 307Q499 224 626 224Q706 224 763.0 259.0Q820 294 850 360L1122 282Q1061 134 929.5 52.0Q798 -30 642 -30ZM856 666Q844 754 810 802Q757 874 638 874Q499 874 434 790Q396 741 380 666Z"/>
+        </group>
+    </group>
+</vector>
