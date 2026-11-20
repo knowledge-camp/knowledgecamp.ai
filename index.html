@@ -16,16 +16,19 @@
             document.documentElement.dataset.theme = isNight ? 'night' : 'day';
         </script>
         <style>
-            /* Each palette's page background and bonfire glow (bonfireGlow) repeat ColorScheme.kt in
-               shared/src/commonMain/kotlin/ai.knowledgecamp.client/shared/view/variables: change both in one commit */
+            /* Each palette's page background and bonfire glow (bonfireGlow: its colour and its blur radius) repeat
+               ColorScheme.kt in shared/src/commonMain/kotlin/ai.knowledgecamp.client/shared/view/variables: change
+               both in one commit */
             html[data-theme="day"] {
                 --page-background: #F7F6F3;
-                --bonfire-glow: drop-shadow(0 0 10px rgba(232, 113, 26, .35));
+                --bonfire-glow-color: rgba(232, 113, 26, .35);
+                --bonfire-glow-radius: 10px;
             }
 
             html[data-theme="night"] {
                 --page-background: #121212;
-                --bonfire-glow: drop-shadow(0 0 12px rgba(255, 138, 61, .55));
+                --bonfire-glow-color: rgba(255, 138, 61, .55);
+                --bonfire-glow-radius: 12px;
             }
 
             html, body {
@@ -52,7 +55,27 @@
                 height: 128px;
                 opacity: 0;
                 animation: bonfire 600ms linear infinite;
-                filter: var(--bonfire-glow);
+            }
+
+            /* The bonfire's one glow, as LoadingIconAnimation draws it: the first frame's shape in the glow colour,
+               blurred, under the frames. It stays while the frames change: a glow per frame would flicker, because
+               the glows of two cross-fading frames add up (KC-1110). The box carries the blur and its ::before the
+               shape, as an element's filter applies before its mask. The mask repeats the first img's path */
+            #splash .bonfire-glow {
+                position: absolute;
+                z-index: -1;
+                width: 128px;
+                height: 128px;
+                filter: blur(var(--bonfire-glow-radius));
+            }
+
+            #splash .bonfire-glow::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background-color: var(--bonfire-glow-color);
+                -webkit-mask: url(composeResources/knowledgecamp_client.shared.generated.resources/drawable/BonfireAnimationFrame1.ico) 0 0 / 100% 100%;
+                mask: url(composeResources/knowledgecamp_client.shared.generated.resources/drawable/BonfireAnimationFrame1.ico) 0 0 / 100% 100%;
             }
 
             /* frame i is fully visible at i * 120ms, cross-fading with its neighbours; 120ms per frame repeats
@@ -109,7 +132,9 @@
             <img src="composeResources/knowledgecamp_client.shared.generated.resources/drawable/BonfireAnimationFrame3.ico" alt=""/>
             <img src="composeResources/knowledgecamp_client.shared.generated.resources/drawable/BonfireAnimationFrame4.ico" alt=""/>
             <img src="composeResources/knowledgecamp_client.shared.generated.resources/drawable/BonfireAnimationFrame5.ico" alt=""/>
+            <!-- After the five frames, as their animation delays count them by nth-child -->
+            <div class="bonfire-glow"></div>
         </div>
-        <script type="application/javascript" src="knowledgeCamp1.1.49.js"></script>
+        <script type="application/javascript" src="knowledgeCamp1.1.50.js"></script>
     </body>
 </html>
